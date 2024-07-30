@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    image: httpd:alpine
+    container_name: apache_server
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
